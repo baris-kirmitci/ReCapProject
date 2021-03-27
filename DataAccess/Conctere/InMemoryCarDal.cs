@@ -3,6 +3,7 @@ using Entity.Conctere;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Conctere
@@ -14,11 +15,11 @@ namespace DataAccess.Conctere
         {
             _cars = new List<Car> {
 
-            new Car{CarId=1,CategoryId=1,BrandId=1,ColorId=7,Description="A5",ModelYear=2011,DailyPrice=25.000},
-            new Car{CarId=2,CategoryId=1,BrandId=1,ColorId=256,Description="A9",ModelYear=2012,DailyPrice=33.090},
-            new Car{CarId=3,CategoryId=2,BrandId=2,ColorId=34,Description="M5",ModelYear=2013,DailyPrice=40.001},
-            new Car{CarId=4,CategoryId=1,BrandId=3,ColorId=1,Description="Scirocco",ModelYear=2015,DailyPrice=23.000},
-            new Car{CarId=5,CategoryId=3,BrandId=4,ColorId=94,Description="Polo",ModelYear=2017,DailyPrice=17.500},
+            new Car{CarId=1,CategoryId=1,BrandId=1,ColorId=7,Description="A5",ModelYear=2011,DailyPrice=25000},
+            new Car{CarId=2,CategoryId=1,BrandId=1,ColorId=256,Description="A9",ModelYear=2012,DailyPrice=33090},
+            new Car{CarId=3,CategoryId=2,BrandId=2,ColorId=34,Description="M5",ModelYear=2013,DailyPrice=4000},
+            new Car{CarId=4,CategoryId=1,BrandId=3,ColorId=1,Description="Scirocco",ModelYear=2015,DailyPrice=23000},
+            new Car{CarId=5,CategoryId=3,BrandId=4,ColorId=94,Description="Polo",ModelYear=2017,DailyPrice=17500},
            
             
             };
@@ -34,7 +35,17 @@ namespace DataAccess.Conctere
             _cars.Remove(carToDelete);
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetAll()
+        {
+            return _cars;
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             return _cars;
         }
@@ -56,6 +67,11 @@ namespace DataAccess.Conctere
             carUpDate.ColorId = car.ColorId;
 
 
+        }
+
+        public void UpDate(Car entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
